@@ -13,11 +13,13 @@ resource "docker_image" "nginx" {
   keep_locally = false
 }
 resource "docker_container" "nginx" {
-  image = docker_image.nginx.latest
-  name  = "alnafi.nigix.server"
+  image    = docker_image.nginx.latest
+  name     = "tutorial"
+  hostname = "learn-terraform-docker"
   ports {
     internal = 80
-    external = 8000
+    external = 8080
   }
 }
+
 
